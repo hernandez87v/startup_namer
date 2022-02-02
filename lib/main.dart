@@ -13,9 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Starup Name Generator',
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.indigo[900],
           foregroundColor: Colors.black,
+          titleTextStyle: const TextStyle(
+              fontFamily: 'Roboto', fontWeight: FontWeight.w800),
         ),
       ),
       home: const RandomWords(),

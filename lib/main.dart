@@ -34,10 +34,19 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Startup Name Generator'),
+        actions: [
+          IconButton(
+            onPressed: _pushSaved,
+            icon: const Icon(Icons.list),
+            tooltip: 'Saved Suggestions',
+          )
+        ],
       ),
       body: _buildSuggestions(),
     );
   }
+
+  void _pushSaved() {}
 
   Widget _buildSuggestions() {
     return ListView.builder(

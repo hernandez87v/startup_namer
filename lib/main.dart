@@ -13,11 +13,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Starup Name Generator',
       theme: ThemeData(
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            color: Colors.amber[600],
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.indigo[900],
-          foregroundColor: Colors.black,
-          titleTextStyle: const TextStyle(
-              fontFamily: 'Roboto', fontWeight: FontWeight.w800),
+          foregroundColor: Colors.amber[600],
         ),
       ),
       home: const RandomWords(),
@@ -35,19 +40,24 @@ class RandomWords extends StatefulWidget {
 class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _saved = <WordPair>{};
-  final _biggerFont = const TextStyle(fontSize: 18);
+  final _biggerFont = const TextStyle(fontSize: 24);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Startup Name Generator'),
+        title: const Text(
+          'Startup Name Generator',
+        ),
         actions: [
           IconButton(
             onPressed: _pushSaved,
-            icon: const Icon(Icons.list),
+            icon: Icon(
+              Icons.list,
+              color: Colors.amber[600],
+            ),
             tooltip: 'Saved Suggestions',
-          )
+          ),
         ],
       ),
       body: _buildSuggestions(),
